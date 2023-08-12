@@ -1,0 +1,1610 @@
+<html><head>
+    <script>
+      window.debugOpen = false
+      let controls;
+      let samples = 0;
+      window.pngSaved = false;
+    let snap = false
+
+
+
+    
+    window.raytrace = true;
+    //if false, depth of field won't work (duh)
+    
+    let depthOfField = false;
+  
+    // both must be false for a normal render with env map visible in window.raytrace = true
+   
+    let transparentBG = false; //render scene with a transparent bg
+    let bigPNGKeepBG = false; //tile render clears BG, false for repeating patterns!
+    let keepBGTransparent = false; //if false will glitch on camera movement
+   
+   
+    // both must be false for a normal render with env map visible in window.raytrace = true
+
+    //if true, clear background when controls moves, if false, glitches happen :)
+    
+    // let totalUniqueFlowers = 30; //can be 0
+    //NUMBER OF FLOWERS  new Flower()
+    
+    
+    let StartColorNumber = "random"
+    // let StartColorNumber = 142x/z/
+    let excludeGreen = true;
+    // let StartColorNumber = 0;
+    // set to a desired start color in degrees of the color wheel "random" will start with a random color between 0 and 360. change it to any number or keep as random.
+
+    let hash = "" 
+hash = "ooRY7DDJBcViWADhdWnSvzxZbtstb5WT1qLwfnZZnefrRfEiEC8"
+
+//GORGE ootLd3YvMgD3D3nmXn5NkGQ3xUb3CjEJxzHDmfKhdZCk1FQJWoL
+
+    // hash = "ooydK4N5siHqDfFqevLiEWXFFy3f9hZRTd7L8vaAVMp9GVfwTja"
+// hash = "oo1TpVBzFXgVPbgX2DyDN7WMqN25LnjDmvUhH4nyp8ZN5AX1tnX"
+
+// hash = "oo1CXjbsiiwZ4LEJH4eramPAYkcVDE5sC4C4ysmfBycUX67pS64"
+
+// hash = "oo1x85aeuafchHwP7EZHoDMooRUwniy2MkCAfWL91wNsc28wN3Z"
+
+    // hash = "oosq8xjQpSLoTm8xLUUZgCyEMd8GPbMTMVQ4TwvwTqHWj6dC551"
+// has spherical ^^
+
+    // hash = "ootyj7PGh72AU2mPHGEE8QYtR7B1dLMbEbwCj56NDdhe2VnF8TN"
+// hash = "ooDYhCLbFWSgaZR9YSoQW7VtHtSDpMfJjHhH5ttky2icE86jB7s"
+
+
+// hash = "ooawE4RWXWnRj4hPKHUqxGgvYn1bzH9fMQVRScBbooomTDaHV29"
+//reddish!!
+
+
+// hash = "oo3RYhenoKhkAHd6GpauxV6SASbGCzPn9eA28xsvg4ScDGjmFsw"
+
+    // hash = "ooH9VMAL4cothCPwxCPfTr5ccMnpX5hNxgKqeQhxtjq5BjmWskw"
+    // hash = "ooqzn7Vejzzk6Lq6SwbavebQVE7wMEcRxZTBx4pf1DC22hGwC9Y"
+    // hash = "oo99rL5CiKbK3Btb6haecEb5senyHfMRb6nDfRofKiJPaodDdHT"
+    // hash = "oonWEZ4frtG4rJ8nQyWxrA7SRxZsavfSQgHeSR9Q6rcBKS8T6L4"
+    // hash = "ookGUHbzCbJ6UP9fKkcJHMFZqKuS7JZtPcuVF4MtHgLYe6kYVLL"
+    // hash = "ooAm91vCZBhD9Yr3nCLkwHR2UQbRCBvh1aUmAcvFvsLi7ELRhMB"
+    // hash = "ooXpTGzpHMUfVm4LUC4CNfNRkHjGjitxHkLos9z9TQTj1fZCwMU"
+// hash = "oobPNBAiSJjUzSKdMc5C7YZm4b29ZhGgJ4Aghp4Z3QPEk8W3Pby"
+// hash = "ooG3ZiPJnrU1epSJG8wEQgTprBAcW665akgpaN1FsFr2z7vgoM3"
+
+    // hash = "oonF1Np5oSNQ1gYTa6eZJkWwsqK15pAhcjAqCHqYs5EvRfMqifE"
+// hash = "oo8YjujQuDmEfFsrFZJK5wK7ozfVd63jJ3H4dhAfeVvkEQiCFU2"
+//red flowers
+
+// hash = "oo9QNXEkL1sJLsyXzfA2Pk9Hs5S7HayvnCkDKcTSVQ6Qrjw8nGG"
+//blue flowers!
+
+
+// hash ="oo9C8wt7RB3vCpFbfrqB4wXjMH4qsMGzSvMihL72wkXwGBxRCmw"
+//spire?
+
+
+
+    // hash = "oonggDahrCXr947W6VzyMoQZkKfNt3p6RA7KKNLodL5ktn61Zei"
+// hash = "ookkxWzxr9nw48aWNZxezJ8K7Kmv8ZCr2n7GFYFEPHkXBtg5QnNM" // CHANGES with 0
+
+// hash = "ooqamm2LM1JB9gRar5yRAZ79Z7qgD1Htj45bU1fHCJZM9MnzKJ8"
+//ALSO changes with 0
+
+// hash = "oogzXL1ronXCUo7JrQjUcAWpZ2Hqyk7CREquJVqvWTsr4bpqVUj"
+
+    // hash = "ooXvtxyiUMkmwLAdSTNrd4K2SNCG6Jx2j9VHuokJJr1BRVMABVP"
+    // hash = "oocx1kwviemEWxxWQTQN4RdEEQyJ5RbjfL1MK34w4yYcS6TH1Np"
+    // hash = "ooxj7uS6c4TBNccdiwt5DNWqJ1nTL4QoGjfktxNnVApw5MEcVHF"
+// hash = "ooNAqZU2ayAgxfU3x7awTeffaLEod4x4oJa8hBpPqwd8ctcvVSt"
+
+
+// hash = "oovAUhR1TxcHty9ga9diwjpjAsDiSPx4rb8p1rnS3R2suwdijZh"
+
+    // hash = "ooQakeQ19ivW2QzS4DU6NUVEyaFHv7TzHoYNBeyhr2RTR2qgoun"
+  //  hash = "ooRRrVWoPScc4JvjoSGQu2NcHHwX2AK7wMG575KnwoEewxp2Nz7" //may crash on jons laptop
+    
+// hash = "ooNpc7owXZh3efnzgrq758bDt1Pkhc7mLP9V9gRKctiCSJ6DAme" //black screen
+
+    // hash = "ooG7fCNhwmKFCDdTsCYumaQ2Lp35n7CgRjAHsrLotdZ8C5dyBpS"
+// hash = "ooyBbEa7A5d93iQzPGJ7hDEMtCGHgS1G3Vdf8eKrT5k6fbGQX7M" //RUNS OUT OF MEMORY?
+// hash = "oodsAvP8VgZUwT8Up2dV5q2ZLU7ksh1npWXoaESNeiab3vxMFmF"
+
+
+    // hash = "ooXcm4Xxn86DWNE8jATYhoAHN2dbXFeGtTTUqqEqwxAejfY5VHJ"
+    // hash = "oo3uCe1ELnpyQerbmHFQnhUj9EFitDTBpoKK41wSbK6VVDd1hmQ"
+
+
+
+    // hash = "oodsAvP8VgZUwT8Up2dV5q2ZLU7ksh1npWXoaESNeiab3vxMFmF" //CRASHES WHEN PACKING! out of MEMORY! //FIX MEMORY LEAK WITH PACKING
+
+
+
+
+
+    // hash = "ooa96dvTCFVPryYnNeeZTEp8gpiMioA8bX7jKshLjFn7aE3Bug6"
+// hash = "oosYUK7pFjLcr57PeZYgxTDY5BsiaYtkzKC23RrAVHQzzuAuzqu" //NEW ERROR
+
+
+    // hash = "ooWayHAbG8usUDr3vovrgsPLoQzkR8RDLPtYszwtQwFC9prSjMA"
+    // hash = "ooMPUaz9Z6bRYi7XLE1Rpwc6VADBCgduTkC13yWwWu2HaypVshH"
+    // hash = "ooXj1YsD9GiY8nPSGFuakXdj7kyC4eBohDwpvhbyq3wrU8TqwJb"
+
+    // hash = "oovSfPZt2KfE6Uy9WQEtBF5rmRAPkp7EP69BZiPyRtuJWRhTrE9" //good
+    // hash = "oo3BrJkz7rid3joe6BqzxZy8XYQG3kxe3urggtmuZNjX9txTuYB" //crashse! error!
+    // hash = "oobvvYmcaNsxLAhWwbYVZyHYpnZJb21ECyu87StvHzrFTqmDKzE" //crashes! error!
+
+
+    // hash = "ooTBAK18hwoZnDCtzZjTifU1UG9VtsjJZpRFewu8qCp3coMM3A4"
+
+    //only set this if you find a hash you love! if you want a random one leave it at ""
+    
+    
+    //becomes colorPatterns, will change how color beahves across the space of an individual flower, it chooses randomly from this
+    //array, so if you remove them be careful so you don't forget what they were.
+    
+    //some schemes I use are:
+    
+    
+    //1Layer and 2Layer are the fastest flowers to generate, but the other flowers are pretty gorge
+    
+    //same deal as before, becomes FlowerTypeChoice, which becomes the structure type
+
+
+let holdFlowers = false; //DO NOT GENERATE. HOLD LOADING SCREEN.
+
+
+let add2DHull = false; //add 2d convex hull to show where the flowers were packed
+let lookAway = true;
+let PACK2D = true; //packs the flowers using a bin packing algorithm
+let TRIMCIRCLE = true;
+let DISPLACE3D = true; //displace 2d pack in 3d space
+let DISPLACEFACTOR = 1.3
+
+
+let flatFlowers = true; //pack flowers in a FLAT way
+
+let savePngAuto = false; //start the png saving loop!
+let maxSamplerefresh = 200;
+
+let flowerGrid = true; //put flowers in a linear grid (NOT PACKED)
+
+
+
+if(flowerGrid){
+
+  flatFlowers = false
+  PACK2D = false;
+add2DHull = false;
+lookAway = false;
+TRIMCIRCLE = false;
+DISPLACE3D = false;
+
+}
+
+
+if(flatFlowers){
+
+PACK2D = true;
+add2DHull = false;
+lookAway = false;
+TRIMCIRCLE = false;
+DISPLACE3D = false;
+
+}
+
+
+    if(PACK2D){
+
+        flowerGrid = false;
+
+    }
+    
+
+    
+  
+    window.bvhInScene = false; //don't use
+    
+    window.generateMaterials = true; //will be overtaken by generateShaderMaterials //change it if you want they'll just all appear gray
+    window.generateShaderMaterials = false; //don't use //always leave on false, it's a can of worms :/
+    
+    
+    let generatePlane = false;
+    window.planeSize = 50
+    //generate the ground plane
+    
+    
+    var cylinderCoords = false //keep it false I think, I think this controls something about how the flowers are positioned within the bouquet, change it if you want tho
+    var cylindernum = Math.ceil(1); //this controls the "randomness" of the flowers in the bouquet, if you make it higher they'll be more randomly positioned. 
+    let RBR1 = 1
+    let RBR2 = 1
+    
+    
+    
+    
+    //don't touch past here unless you're feeling freaky
+    
+  let fullscreen = false;
+  let windowIncrement = 3 //will be 3x the size of the window //only work with fullscreen: true
+  
+  
+  let staticSizeRatio = 0.98; //a number between 0 and 1, is a percent, will control how big of a % the canvas size is relative to the smallest side of the screen
+  //largest side of the canvas is 98% the size of the smallest side of the screen
+  
+  // let staticSizeRatio = 1 //is touching the top / side of the screen (whichever is smaller)
+  
+  let originalWidth, originalHeight
+  
+  let nonfswidth = 2000 //set width of the final output image (non fullscreen)
+  let nonfsheight = 2000 //set height of the final output image (non fullscreen)
+  
+  
+  if(fullscreen){
+  f = window.innerWidth*windowIncrement
+  originalHeight = window.innerHeight*windowIncrement
+  } else {
+  originalWidth = nonfswidth
+  originalHeight = nonfsheight
+  }
+  
+  
+
+
+  let trueReduction = false
+
+    
+    
+    
+    </script>
+
+ 
+    
+    
+      <title>almost done: flowers!</title>
+
+    </head>
+    
+    <body id="container">
+
+
+
+
+
+      <div id="debugSettings" class="invisible styled debug">
+        <b class="labelHeader">Debug settings: change resolution, rendering, etc</b> <br>
+
+        <div><input id="depthOfField" type="checkbox">Depth of Field 
+        <input id="savePngAuto" type="checkbox">SavePngAuto <input type="number" id="maxSamplerefresh" class="debugInputText" min=0 max=1000000 step=0.01 placeholder="sample #" >
+        <br>
+        <input id="transparentBG" type="checkbox"> transparentBG
+      <!-- </div>
+
+        <div id="glitchyThings" class=""> -->
+         <span><input id="keepBGTransparent" type="checkbox"> noClearBG <span>
+         <span><input id="bigPNGKeepBG" type="checkbox"> bigPNGKeepBG</span>
+
+      </div>
+
+        <b class="labelHeader">Overwrite reduction settings (default 0.85)</b> <br>
+       
+<style>
+#reductionContainer{
+  display: flex;
+}
+
+.radioContainer{
+  text-align: center;
+}
+
+/* #inputText{
+  width: 40px;
+    height: 15px;
+    margin-top: 7px;
+} */
+
+input[type="number"]::placeholder {
+                 
+                 /* Firefox, Chrome, Opera */
+                 text-align: center;
+             }
+
+             input[type="number"]:-ms-input-placeholder {
+                  
+                 /* Internet Explorer 10-11 */
+                 text-align: center;
+             }
+             input[type="number"]::-ms-input-placeholder {
+                  
+                 /* Microsoft Edge */
+                 text-align: center;
+             }
+
+             input[type="number"] {
+                 
+                 /* Firefox, Chrome, Opera */
+                 text-align: center;
+             }
+
+             input[type="number"] {
+                  
+                 /* Internet Explorer 10-11 */
+                 text-align: center;
+             }
+             input[type="number"] {
+                  
+                 /* Microsoft Edge */
+                 text-align: center;
+             }
+
+             /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+             /* body {
+                 text-align:center;
+             } */
+
+</style>
+
+<div id="reductionContainer">
+
+
+  <style>
+#hiddenradios{
+  display: none;
+}
+
+  </style>
+  
+  <div class="radioContainer">
+    <input type="checkbox" class="checkbox reductionRadio" name="fav_language" value="custom" id="custom1Layer">
+    Overwrite for simpler flowers—value required: 
+   <input type="number" class="debugInputText" min=0 max=1 step=0.01 id="inputText" placeholder="0-1" >
+   <!-- <label for="html">custom</label> -->
+  </div>
+
+   </div>
+
+   
+
+   <!-- <input type="checkbox" name="overWriteAll" value="overWriteAll">TODO: overWriteAll, sets reduction for all flower types<br> -->
+   <input type="checkbox" class="checkbox" name="overWriteAll" value="overWriteAll" id="overwriteSpire">Overwrite spire reduction—value required:
+   <input type="number" class="checkbox debugInputText" max="0.9999" min="0" placeholder="0-1" id="spireReductionNumber"> <br>
+
+   <input type="checkbox" class="checkbox" name="overWriteAll" value="overWriteAll" id="overwriteSpherical">Overwrite for all spherical—value required:
+   <input type="number" class="debugInputText" max="0.9999" min="0" placeholder="0-1" id="sphericalReductionNumber"> <br>
+
+  
+
+
+
+
+
+<b class="labelHeader">Resolution toggles</b><br>
+<input type="checkbox" class="checkbox" name="hrDots" value="highResDots" id="hrDots">high res dots (H) — optional: set sphere segments:
+ <input type="number" class="debugInputText" placeholder="2-200" id="dotResolution"> <br>
+<input type="checkbox" class="checkbox" name="hrDots" value="highResStamens" id="hrStamen">high res stamens (J) — optional: set sphere segments:  
+<input type="number" class="debugInputText" placeholder="2-200" id="antherResolution"><br>
+<!-- <input type="checkbox" name="hrDots" value="highResFlowers" id="hrFlowers">high res flowers (R) - sets 1Layer and 2Layer<br> -->
+
+
+<style>
+#rows-colscontainer{
+  display: flex; 
+  flex-direction: column;
+}
+
+.rowscolsparent{
+  display: flex;
+  flex-direction:row;
+}
+
+.rowscols{
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  width: 200px;
+  padding: 10px;
+  padding-top:0px;
+  padding-bottom:0px;
+  padding-left:0px;
+  /* font-size: 10px;
+  line-height:15px; */
+}
+
+
+.flowerHeader{
+  /* font-size: 10px; */
+    /* line-height: 20px; */
+}
+
+</style>
+
+<!-- <br> -->
+<b class="labelHeader">Resolution settings (flower geometry)</b><br>
+Row and col numbers optional, suggestion: keep value >= 20<br>
+<div id="rows-colscontainer">
+  <div class="rowscolsparent">
+<div class="rowscols">
+  <b class="flowerHeader">Nonspherical</b> <input id="nonsphericalCheck" class="checkbox" type="checkbox"><br>
+Row res:  <input id="nonsphericalRows" placeholder="55" class="debugInputText" type="number" width="70"> <br>
+Col res: <input id="nonsphericalCols" placeholder="200" class="debugInputText" type="number" width="70"> <br>
+</div>
+<div class="rowscols">
+  <b class="flowerHeader">Spherical</b> <input id="sphericalCheck" class="checkbox" type="checkbox"><br>
+Row res:  <input id="sphericalRows" placeholder="50" class="debugInputText" type="number" width="70"> <br>
+Col res: <input id="sphericalCols" placeholder="2100" class="debugInputText" type="number" width="70"> <br>
+</div>
+
+<div class="rowscols">
+  <b class="flowerHeader">Zinnia</b> <input id="zinniaCheck" class="checkbox" type="checkbox"><br>
+Row res:  <input id="zinniaRows" placeholder="20" class="debugInputText" type="number" width="70"> <br>
+Col res: <input id="zinniaCols" placeholder="4000" class="debugInputText" type="number" width="70"> <br>
+</div>
+</div>
+<!-- <div class="rowscols">
+  <b class="flowerHeader">Camelia</b><br>
+Rows: <br>
+ Cols: <br>
+</div>
+</div>
+
+<div class="rowscolsparent">
+<div class="rowscols">
+  <b class="flowerHeader">Zinnia</b><br>
+Rows: <br>
+ Cols: <br>
+</div>
+<div class="rowscols">
+  <b class="flowerHeader">Lotus</b><br>
+Rows:  <br>
+Cols: <br>
+</div>
+<div class="rowscols">
+  <b class="flowerHeader">Rose</b><br>
+Rows: <br>
+ Cols: <br>
+</div>
+</div> -->
+
+
+</div>
+
+
+
+<b class="labelHeader">Renderer pixel resolution (1:1 ratio)</b> <input id="rendererRes" placeholder="2000" type="number" class="textInput">
+<br><br><br>
+
+Press C to confirm selections and generate flowers. F closes this menu.
+
+      </div>
+
+
+<div id="keybindSettings" class="invisible styled">
+<b class="labelHeader">Menu opening keys:</b> <br>
+<span class="keylabel">Z</span> open/close: save images, move env map, move camera<br>
+<span class="keylabel">F</span> open/close: debug settings (custom resolution & reduction)<br>
+<span class="keylabel">K</span> open/close: shortcut key list (this list) <br>
+<span class="keylabel">C</span> confirm settings, close dialog, generate<br>
+
+<b class="labelHeader">Resolution & reduction keys:</b><br>
+<span class="keylabel">H</span> set dots to be high res<br>
+<span class="keylabel">J</span> set stamen to be high res<br>
+<!-- <span class="keylabel">R</span> set flowers to be higher resolution<br> -->
+<!-- <span class="keylabel">P</span> set reduction to 0.9<br> -->
+<!-- <span class="keylabel">O</span> set reduction to 0<br> -->
+<!-- <span class="keylabel">0 — 9</span> set flower mesh reduction level. 9 is most, 0 is least.<br> -->
+<!-- <span class="keylabel">G</span> return to default flower reduction level (0.85)<br> -->
+
+<b class="labelHeader">Camera target movement:</b><br>
+<span class="keylabel">Q</span> subtract X<br>
+<span class="keylabel">E</span> add X<br>
+<span class="keylabel">D</span> subtract y<br>
+<span class="keylabel">A</span> add y<br>
+<span class="keylabel">S</span> subtract Z (vertical target)<br>
+<span class="keylabel">W</span>add Z<br>
+
+
+              </div>
+
+
+              <div id="controls" class="invisible flexStyled">
+                <b>Environment map rotation controls:</b>
+              <div>
+              Environment Rotation Horiz (Z):
+              
+              </div>
+              
+              <input type="range" class="rangeSlider" id="envRotation" value="0" min="0" max="6.284" step="0.1">
+              
+              <div>
+                Environment Rotation Y:
+                
+                </div>
+                
+                <input type="range" class="rangeSlider" id="envRotationVert" value="0" min="0" max="6.284" step="0.1">
+              
+                <div>
+                  Environment Rotation X:
+                  
+                  </div>
+                  
+                  <input type="range" class="rangeSlider" id="envRotationHoriz2" value="0" min="0" max="6.284" step="0.1">
+              
+              
+                <button class="controlButton" id="resetEnvRotation"> Reset environment map rotation</button>
+              
+                <br>
+                
+                <!-- <br>
+                <hr>
+                <br> -->
+              <b>Camera movement controls:</b>
+              
+              
+                <div class="cameraControls">
+                  Camera Movement Increment:<br> <input type="number" class="textInput" id="cameraIncrement" value="0.4">
+                  </div>
+              
+              
+                <div class="cameraControls">
+                Camera X: <span id="cameraXValue">0</span>
+                </div>
+              
+                <div class="cameraControls">
+                <button class="controlButton thirtyThreePercent" id="cameraXPlus">+ (E)</button>  <button class="controlButton thirtyThreePercent" id="cameraXMinus">- (Q)</button> <button class="controlButton thirtyThreePercent" id="cameraXZero">Reset</button><br>
+              </div>
+              
+              
+                <div class="cameraControls">
+                Camera Y: <span id="cameraYValue">0</span>
+                </div>
+              
+                <div class="cameraControls">
+                <button class="controlButton thirtyThreePercent" id="cameraYPlus">+ (A)</button>  <button class="controlButton thirtyThreePercent" id="cameraYMinus">- (D)</button> <button class="controlButton thirtyThreePercent" id="cameraYZero">Reset</button><br>
+              </div>
+              
+              
+                <div class="cameraControls">
+                Camera Z: <span id="cameraZValue">0</span>
+              </div>
+              
+              <div class="cameraControls">
+              <button class="controlButton thirtyThreePercent" id="cameraZPlus">+ (S)</button>  <button class="controlButton thirtyThreePercent" id="cameraZMinus">- (W)</button>  <button class="controlButton thirtyThreePercent" id="cameraZZero">0</button> <button class="controlButton thirtyThreePercent" id="cameraZDefReal">Reset</button><br>
+              </div>
+              
+              <br>
+              <div>
+              <button class="controlButton half" id="resettoDefReal">Reset all centered</button>
+              <button class="controlButton half" id="resettoDef">Reset all 0</button>
+              </div> 
+              
+              <!-- <br> -->
+              <!-- <br> -->
+              
+              
+              <div>
+              <!-- <div> -->
+              <!-- <div> -->
+                <!-- <hr> -->
+                <br>
+                <b>Raytrace high resolution PNG (warning: processor intense):</b><br>
+              Resolution (1:1 aspect ratio)—use up/down arrow keys:<br> <input class="textInput" type="number" value="4000" id="widthValue" step="500"><br>
+              <!-- </div> -->
+              
+              <!-- <div> -->
+              Samples: <br><input class="textInput" type="number" value="80" id="exportSamples">
+              <!-- </div> -->
+              </div>
+              
+                <button class="controlButton" id="savepngbutton">Render high resolution PNG</button>
+              
+              <!-- </div> -->
+              <br>
+              
+              <b>Screenshot and save canvas PNG:</b>
+              <button class="controlButton" id="savecanvaspng">Save screenshot of canvas</button><br>
+                <div id="hash">ooyWtnjbo2XDUBhHtr8LmmgYKp1KXbq7ZNZCa3hVrg1FZoAHHgP</div><br>
+<span id="sampleCount"></span>
+                <br>
+
+                Press Z to close/open this menu
+              
+              
+              </div>
+
+      
+        <div id='fitContainer'>
+
+            <div id='playground'></div>
+          </div>
+
+        <div id="loading">
+        <canvas id="canvasloading" height="300" width="300"></canvas>
+
+        <script>
+          document.getElementById("canvasloading").height = 2000
+          document.getElementById("canvasloading").width = 2000
+        </script>
+
+        <!-- <canvas id="bufferCanvas"></canvas> -->
+        </div>
+
+
+      <script id="fxhash-snippet">
+        //---- do not edit the following code (you can indent as you wish)
+        let search = new URLSearchParams(window.location.search)
+        let alphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
+        var fxhash = search.get('fxhash') || "oo" + Array(49).fill(0).map(_=>alphabet[(Math.random()*alphabet.length)|0]).join('')
+        
+        if (hash != ""){
+          fxhash = hash
+        }
+    
+        console.log(fxhash)
+    
+    
+        let b58dec = str=>[...str].reduce((p,c)=>p*alphabet.length+alphabet.indexOf(c)|0, 0)
+        let fxhashTrunc = fxhash.slice(2)
+        let regex = new RegExp(".{" + ((fxhash.length/4)|0) + "}", 'g')
+        let hashes = fxhashTrunc.match(regex).map(h => b58dec(h))
+        let sfc32 = (a, b, c, d) => {
+          return () => {
+            a |= 0; b |= 0; c |= 0; d |= 0
+            var t = (a + b | 0) + d | 0
+            d = d + 1 | 0
+            a = b ^ b >>> 9
+            b = c + (c << 3) | 0
+            c = c << 21 | c >>> 11
+            c = c + t | 0
+            return (t >>> 0) / 4294967296
+          }
+        }
+        var fxrand = sfc32(...hashes)
+        // true if preview mode active, false otherwise
+        // you can append preview=1 to the URL to simulate preview active
+        var isFxpreview = search.get('preview') === "1"
+        // call this method to trigger the preview
+        function fxpreview() {
+          console.log("fxhash: TRIGGER PREVIEW")
+        }
+        //---- /do not edit the following code
+      </script>
+  
+
+
+
+<script>
+ window.canvasMap = false
+ let highResDots = false
+ let highResStamen = false
+ let antherResolution = 40
+
+window.sphericalReudctionOverWite = false
+window.sphericalReudctionNumber = 0
+window.spireReductionOverWrite = false
+window.spireReductionNumber = 0
+
+//^ DONE, need to put it in the worker!!!
+//TODO
+
+window.customNonsphericalChecked = false
+window.nonSphericalCols = 0
+window.nonSphericalRows = 0
+
+window.customSphericalChecked = false
+window.sphericalCols = 0
+window.sphericalRows = 0
+
+window.customZinniaChecked = false
+window.hrZinniaCols = 0
+window.hrZinniaRows = 0
+
+function GenerateFlowers(){
+  var aspect = originalWidth / originalHeight;
+
+  if(window.raytrace){
+      focusPoint = new THREE.Vector3();
+
+      if(depthOfField){
+ camera = new PhysicalCamera( 2, aspect, 1, 10000 );
+  camera.apertureBlades = 6;
+  camera.fStop = 0.1;
+  //0.01
+//   camera.bokehSize = 20;
+//   camera.focusDistance = 1.3001;
+  camera.focusDistance =  0.001;
+//   0.0001;
+
+//   const cameraFolder = gui.addFolder( 'Camera' );
+// cameraFolder.add( camera, 'focusDistance', 1, 100 ).onChange( reset ).listen();
+// cameraFolder.add( camera, 'apertureBlades', 0, 10, 1 ).onChange( function ( v ) {
+
+// 	camera.apertureBlades = v === 0 ? 0 : Math.max( v, 3 );
+// 	this.updateDisplay();
+// 	reset();
+
+// } );
+// cameraFolder.add( camera, 'apertureRotation', 0, 12.5 ).onChange( reset );
+// cameraFolder.add( camera, 'anamorphicRatio', 0.1, 10.0 ).onChange( reset );
+// cameraFolder.add( camera, 'bokehSize', 0, 100 ).onChange( reset ).listen();
+// cameraFolder.add( camera, 'fStop', 0.02, 20 ).onChange( reset ).listen();
+// cameraFolder.add( camera, 'fov', 25, 100 ).onChange( () => {
+
+
+  focusPoint.set( 0, 0, 0 );
+  // camera.up.set(0,0,1)
+  
+} else {
+   camera = new THREE.PerspectiveCamera(2, aspect, 1, 10000);
+    // camera.up.set(0,0,1)
+    // camera.position.z = 400;
+    // camera.position.x = window.planeSize*16;
+    // camera.position.y = window.planeSize*16;
+      }
+     
+  // camera.position.set( - 0.262, 0.5276, - 1.1606 );
+
+    } else {
+      camera = new THREE.PerspectiveCamera(2, aspect, 1, 10000);
+     
+    // camera.up.set(0,0,1)
+    // camera.position.z = 400;
+    // camera.position.x = window.planeSize*16;
+    // camera.position.y = window.planeSize*16;
+    }
+
+
+    
+
+    console.log("Three revision: "+ THREE.REVISION)
+    
+    // let renderer
+
+
+  //regular threejs renderer
+ 
+
+
+    if(transparentBG){
+      renderer = new THREE.WebGLRenderer({preserveDrawingBuffer: true, antialias:true, alpha:true} );
+    // renderer.setRenderTarget ( null )
+    renderer.shadowMap.enabled = true;
+    renderer.setSize(originalWidth, originalHeight);
+    renderer.setClearColor(0xffffff, 0);
+    } else {
+      renderer = new THREE.WebGLRenderer({preserveDrawingBuffer: true, antialias:true} );
+    // renderer.setRenderTarget ( null )
+    renderer.shadowMap.enabled = true;
+    renderer.setSize(originalWidth, originalHeight);
+      renderer.setClearColor(0x363940, 1);
+      
+    }
+   
+
+     
+
+    renderer.domElement.id="threeJsCanvas"
+    renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+
+
+
+    document.body.appendChild(renderer.domElement);
+    setStyle(originalWidth, originalHeight, fullscreen)
+
+    const mouse = new THREE.Vector2();
+    focusPoint = new THREE.Vector3();
+
+
+
+
+    function onMouseDown( e ) {
+
+    //   console.log("CLICKEVENT", e)
+
+    //FOCUS CLICK
+    //SET FOCUS
+
+mouse.set( e.clientX, e.clientY );
+
+}
+
+
+    
+    function onMouseUp( e ) {
+
+    //   console.log("CLICKEVENT", "UP", e)
+
+const deltaMouse = Math.abs( mouse.x - e.clientX ) + Math.abs( mouse.y - e.clientY );
+if ( deltaMouse < 2 && sceneInfo ) {
+
+  const bvh = sceneInfo.bvh;
+  const raycaster = new THREE.Raycaster();
+
+
+const rect = document.getElementById("threeJsCanvas").getBoundingClientRect();
+let canvas = document.getElementById("threeJsCanvas")
+const x = event.clientX - rect.left;
+const y = event.clientY - rect.top;
+let newmouse = {x:0, y:0}
+newmouse.x = ( x / canvas.clientWidth ) *  2 - 1;
+newmouse.y = ( y / canvas.clientHeight) * - 2 + 1
+
+
+raycaster.setFromCamera( newmouse, camera );
+
+
+  // raycaster.setFromCamera( {
+
+  //   x: ( e.clientX / window.innerWidth ) * 2 - 1,
+  //   y: - ( e.clientY / window.innerHeight ) * 2 + 1,
+
+  // }, camera );
+
+  const hit = bvh.raycastFirst( raycaster.ray );
+  if ( hit ) {
+
+    focusPoint.copy( hit.point );
+
+    console.log("updating focus point!", focusPoint)
+
+    camera.focusDistance = hit.distance - camera.near;
+    ptRenderer.reset();
+
+  }
+
+}
+
+}
+
+    renderer.domElement.addEventListener( 'mouseup', onMouseUp );
+    renderer.domElement.addEventListener( 'mousedown', onMouseDown );
+
+// initialize the path tracing material and renderer
+
+
+
+camera.up.set(0,0,1)
+// camera.lookAt( 0, 0, 12 )
+
+
+
+
+camera.lookAt( 0, 0, cameraZ )
+    camera.position.z = ((gridSize/2)/2) + 100
+    camera.position.x = ((gridSize/2)/2) + 100 //used to be window.planeSize*16+ 100
+    camera.position.y = ((gridSize/2)/2) + 100;  
+
+controls = new window.OrbitControls( camera, renderer.domElement );
+   
+  // controls.up.set(0,0,1)
+   controls.target.set( 0, 0, cameraZ );
+
+
+
+    
+
+   controls.update();
+
+if(window.raytrace){
+
+  
+
+
+ ptMaterial = new PhysicalPathTracingMaterial();
+// ptMaterial = new DenoiseMaterial();
+ ptRenderer = new PathTracingRenderer( renderer );
+//  renderer.setRenderTarget ( null )
+ptRenderer.setSize( originalWidth, originalHeight );
+ptRenderer.camera = camera;
+ptRenderer.material = ptMaterial;
+
+// if rendering transparent background
+ptRenderer.alpha = true;
+ptRenderer.stableNoise = false;
+ptRenderer.tiles = ( 1, 1 )
+
+// init quad for rendering to the canvas
+ fsQuad = new window.FullScreenQuad( new THREE.MeshBasicMaterial( {
+  transparent: true,
+  map: ptRenderer.target.texture,
+
+  // if rendering transparent background
+  blending: THREE.CustomBlending,
+} ) );
+    
+
+
+controls.addEventListener( 'change', () => {
+
+  if(!keepBGTransparent){
+    renderer.clear()
+  }
+
+
+
+  ptRenderer.reset();
+
+} );
+
+
+}
+
+
+    // var scene = new THREE.Scene();
+
+    // var axis = new THREE.Vector3(0, 0, 1);
+    
+    // let color1 = 0;
+    // let color2 = 0;
+    // let color3 = 0;
+    // let color4 = 0;
+    // let startColor
+    // let c2
+    // let startColorHue = fxrand()*360
+    // let l = 90
+    // let increment = fxrand()*30 + 30
+    // let flowerGeomOffset = 0;
+    let lastBboxMin = 0;
+    
+    // let color1Arr = []
+    // let color2Arr = []
+    // let color3Arr = []
+    // let color4Arr = []
+        
+    // let toWhite = fxrand() < 0.5 ? true : false;
+
+
+    
+        var ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+    scene.add(ambientLight);
+    // var pointLight = new THREE.PointLight(0xffffff, 0.8);
+    // camera.add(pointLight);
+    // scene.add(camera);
+    
+    let hemiLight = new THREE.HemisphereLight(0xffffff, 0.3);
+    scene.add(hemiLight);
+
+    // let newlight = new THREE.SpotLight(0xffa95c,0.7);
+    let newlight = new THREE.SpotLight(0xffffff,0.6);
+    newlight.position.set(0,0,80);
+    newlight.castShadow = true;
+    newlight.shadow.bias = -0.0001;
+newlight.shadow.mapSize.width = 1024*16;
+newlight.shadow.mapSize.height = 1024*16;
+    scene.add( newlight );
+    render()
+
+    //add yellow marker sphere for the light
+   const geometry12345 = new THREE.SphereGeometry( 0.5, 32, 16 );
+                  const material123456 = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+                //   console.log("MATERIALOP", "new!")
+                  const sphere1234567 = new THREE.Mesh( geometry12345, material123456 );
+                  sphere1234567.position.set(0,0,40);
+                  // scene.add( sphere1234567 );
+
+
+
+
+
+
+
+window.finishedFlowers = []
+
+window.totalDotNumber = totalUniqueFlowers
+
+window.sendFlowerIndex = 0
+window.finishedFlowersPercent = 0
+
+
+
+
+
+
+if(document.getElementById("rendererRes").value !== ""){
+  originalWidth = document.getElementById("rendererRes").value
+  originalHeight = document.getElementById("rendererRes").value
+}
+
+
+if(window.raytrace){
+  ptRenderer.setSize( originalWidth, originalHeight );
+}
+
+renderer.setSize(originalWidth, originalHeight);
+setStyle(originalWidth, originalHeight, fullscreen)
+
+
+
+  if(window.debugOpen){
+            window.debugOpen = false
+            document.getElementById("debugSettings").classList.toggle("invisible")
+        }
+
+  if(document.getElementById("antherResolution").value !== ""){
+    highResStamen = true
+    antherResolution = document.getElementById("antherResolution").value
+    // console.log("ANT/HERRESOLUTION", antherResolution, highResStamen)
+  }
+
+
+if(document.getElementById("nonsphericalCheck").checked){
+  totalUniqueFlowerChoice.highResChange = true;
+  document.getElementById("nonsphericalRows").value !== "" ? window.nonSphericalRows =  document.getElementById("nonsphericalRows").value :  window.nonSphericalRows = 70
+  document.getElementById("nonsphericalCols").value !== "" ? window.nonSphericalCols =  document.getElementById("nonsphericalCols").value :  window.nonSphericalCols = 250
+
+  window.customNonsphericalChecked = true
+}
+
+if(document.getElementById("sphericalCheck").checked){
+  totalUniqueFlowerChoice.highResChange = true;
+  document.getElementById("sphericalRows").value !== "" ? window.sphericalRows =  document.getElementById("sphericalRows").value :  window.sphericalRows = 60
+  document.getElementById("sphericalCols").value !== "" ? window.sphericalCols =  document.getElementById("sphericalCols").value :  window.sphericalCols = 3000
+  window.customSphericalChecked = true
+}
+
+if(document.getElementById("zinniaCheck").checked){
+  totalUniqueFlowerChoice.highResChange = true;
+  document.getElementById("zinniaRows").value !== "" ? window.hrZinniaRows =  document.getElementById("zinniaRows").value :  window.hrZinniaRows = 40
+  document.getElementById("zinniaCols").value !== "" ? window.hrZinniaCols =  document.getElementById("zinniaCols").value :  window.hrZinniaCols = 4500
+  window.customZinniaChecked = true
+}
+
+
+
+
+
+  if(document.getElementById("overwriteSpherical").checked){
+    updateRes()
+  }
+
+  if(document.getElementById("overwriteSpire").checked){
+    updateRes()
+}
+
+
+
+for(var i=0; i<flowerLen; i++){
+  // let flower = new Flower(i, (((i+1)*0.4)+1)%360, new THREE.Vector3(((i*6)%window.planeSize) - (window.planeSize/2), Math.floor((i*6)/window.planeSize)*6 - (window.planeSize/2), 0)) //must have flower index number
+  //  let flower = new Flower(i, StartColorNumber, new THREE.Vector3(((i*6)%window.planeSize) - (window.planeSize/2), Math.floor((i*6)/window.planeSize)*6 - (window.planeSize/2), 0)) //must have flower index number
+
+  window.flowerGeoms.push([])
+//original, grid position GRID GRID GRID
+
+console.log("REDUCEDREDUCTION", totalUniqueFlowerChoice.reducedReduction)
+
+  let flower = new Flower(
+    i,
+   StartColorNumber,
+    new THREE.Vector3((((i-1)*6)%window.planeSize) - (window.planeSize/2),Math.floor(((i-1)*6)/window.planeSize)*6 - (window.planeSize/2), 0),
+       [fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand()],
+        reducedReductionCase,
+        totalUniqueFlowerChoice.reduction,
+         totalUniqueFlowerChoice.reducedReduction,
+         totalUniqueFlowerChoice.highResChange,
+         {sphericalReudctionOverWite: window.sphericalReudctionOverWite,
+          sphericalReudctionNumber: window.sphericalReudctionNumber,
+          spireReductionOverWrite: window.spireReductionOverWrite,
+          spireReductionNumber: window.spireReductionNumber,
+          hrZinnia: window.customZinniaChecked,
+          hrZinniaRows: window.hrZinniaRows,
+          hrZinniaCols: window.hrZinniaCols,
+          hrNonspherical: window.customNonsphericalChecked,
+          hrNonsphericalRows:  window.nonSphericalRows,
+          hrNonsphericalCols: window.nonSphericalCols,
+          hrSpherical: window.customSphericalChecked,
+          hrSphericalRows: window.sphericalRows,
+          hrSphericalCols: window.sphericalCols
+        }
+//sphericalReductionOverWrite
+//spireReductionOverWrite
+
+
+
+         ) //must have flower index number
+//with coordinates for grid ^
+
+//00000000000000000 vvvv
+// let flower = new Flower(i, StartColorNumber, new THREE.Vector3(0,0,0), [fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand(), fxrand()]) //must have flower index number
+
+  StartColorNumber = (StartColorNumber + colorIncrement)%360
+
+//  let flower = new Flower(i, StartColorNumber, new THREE.Vector3(0,0,0)) //must have flower index number
+    
+
+window.flowersArray.push(flower)
+// console.log(flower)
+}
+
+}
+
+
+function updateCamera(){
+    camera.lookAt( cameraX, cameraY, cameraZ );
+    controls.target.set( cameraX, cameraY, cameraZ );
+    controls.update()
+    renderer.clear()
+    if(window.raytrace){
+      ptRenderer.reset();
+    }
+
+    document.getElementById("cameraYValue").innerText = cameraY
+    document.getElementById("cameraXValue").innerText = cameraX
+    document.getElementById("cameraZValue").innerText = cameraZ
+
+  }
+
+let debug = false
+let debugDelayPassed = false
+
+
+window.packerTimeout = 500
+
+let canvasworker1
+
+window.highRes = false
+canvasworker1 = new Worker("./mainscripts/canvasworker.js");
+    
+window.packingworker = new Worker('packing-worker.js', {type:"module"})
+
+    // Use the OffscreenCanvas API and send to the worker thread
+
+    let canvasRandoms = []
+
+    for(var i=0; i<50; i++){
+      canvasRandoms.push(fxrand())
+    }
+    
+    let canvasWorker = document.getElementById("canvasloading").transferControlToOffscreen();
+    canvasworker1.postMessage({ start: true, canvas: canvasWorker, randoms:canvasRandoms }, [canvasWorker]);
+    
+
+window.flowerSpire = false;
+window.smallGridSpire = false;
+
+
+
+
+
+// includesDots = false
+
+
+
+// let includesDots = false
+  
+  let uniqueFlowerNumbers = [
+    {flowerNumber: 4, gridSize: 800, spacings:[40], reduction: 0.85, reducedReduction: 0.85 , dotChance:0.5,highResChange: false},
+  {flowerNumber: 4, gridSize: 800, spacings:[40], reduction: 0.85, reducedReduction: 0.85 , dotChance:0.5,highResChange: false}, 
+  {flowerNumber: 4, gridSize: 800, spacings:[40], reduction: 0.85, reducedReduction: 0.85 , dotChance:0.5,highResChange: false}, 
+  {flowerNumber: 4, gridSize: 800, spacings:[40], reduction: 0.85, reducedReduction: 0.85 , dotChance:0.5,highResChange: false}, 
+  {flowerNumber: 10, gridSize: 1000, spacings:[40, 50], reduction: 0.85, reducedReduction: 0.85 , dotChance:0.5,highResChange: false}, 
+  {flowerNumber: 20, gridSize: 1500, spacings:[40, 50, 60], reduction: 0.85, reducedReduction: 0.85, dotChance:0,highResChange: false}, 
+              // {flowerNumber: 20, gridSize: 2000, spacings:[40, 50, 60], reduction: 0.75, reducedReduction: 0.85 , dotChance:0}, 
+              // {flowerNumber: 25, gridSize: 3000, spacings:[40, 50], reduction: 0.85, reducedReduction: 0.85 , dotChance:0}, 
+              // {flowerNumber: 25, gridSize: 3000, spacings:[60, 70], reduction: 0.85, reducedReduction: 0.85 , dotChance:0}, 
+//   {flowerNumber: 40, gridSize: 4000, spacings:[70, 80], reduction: 0.8}
+]
+
+
+
+
+let totalUniqueFlowerChoice =  uniqueFlowerNumbers[Math.floor(fxrand()*uniqueFlowerNumbers.length)];      //  30;
+
+
+// let trueReduction = 0.1
+
+let includesDots = fxrand() < totalUniqueFlowerChoice.dotChance ? true : false;
+
+if(includesDots){
+  canvasworker1.postMessage({ update: "includesDots", message: [true]})
+}
+
+let includesStripes = fxrand() < 0.5 ? true : false;
+
+console.log("INCLUDESDOTS", includesDots)
+
+
+//  totalUniqueFlowerChoice.flowerNumber = 0
+
+ let reducedReductionCase = false
+window.overWriteAll = false
+
+
+</script>
+
+
+
+<script src="./keydown.js"></script>
+
+
+
+<script>
+
+
+if(totalUniqueFlowerChoice.gridSize<801){
+  window.flowerSpire = true
+  window.smallGridSpire = true;
+}
+
+  console.log("SETTINGCHOICE", totalUniqueFlowerChoice)
+ 
+  let totalUniqueFlowers = totalUniqueFlowerChoice.flowerNumber //30
+//   totalUniqueFlowers = 40
+
+// let gridSizes = [100, 200, 300, 500, 1000, 2000, 3000, 4000]
+
+let gridSize =  totalUniqueFlowerChoice.gridSize
+
+
+
+
+
+if(gridSize > 799){
+  window.packerTimeout = 500
+}
+
+
+if(gridSize > 1000){
+  window.packerTimeout = 3000
+}
+
+if(gridSize > 2000){
+  window.packerTimeout = 10000
+}
+
+
+
+let cameraZ = 18; //camera looks at this z axis
+
+//we need to move cameraZ , Y, and Z
+
+
+
+let defaultZ = Object.freeze(cameraZ)
+let centerStalkZ = 0;
+
+function resettoDef(){
+
+cameraX = 0
+cameraY = 0
+cameraZ = 18
+if(window.raytrace){
+      ptRenderer.reset();
+    }
+
+    document.getElementById("cameraZValue").value = cameraZ
+    document.getElementById("cameraYValue").value = cameraY
+    document.getElementById("cameraXValue").value = cameraX
+
+camera.position.x = defaultCameraPos
+camera.position.y = defaultCameraPos
+camera.position.z = defaultCameraPos
+camera.lookAt( cameraX, cameraY, cameraZ );
+controls.target.set( cameraX, cameraY, cameraZ );
+renderer.clear()
+
+}
+
+function resettoDefReal(){
+
+cameraX = 0
+cameraY = 0
+cameraZ = 18
+if(window.raytrace){
+    ptRenderer.reset();
+  }
+
+  document.getElementById("cameraZValue").value = cameraZ
+  document.getElementById("cameraYValue").value = cameraY
+  document.getElementById("cameraXValue").value = cameraX
+
+camera.position.x = realDefaultCameraPos
+camera.position.y = realDefaultCameraPos
+camera.position.z = realDefaultCameraPos
+camera.lookAt( cameraX, cameraY, cameraZ );
+controls.target.set( cameraX, cameraY, cameraZ );
+renderer.clear()
+
+}
+
+
+
+let cameraY = 0;
+let cameraX = 0;
+
+
+// document.getElementById("cameraX").min = -1 * (gridSize/2)
+// document.getElementById("cameraX").max = (gridSize/2)
+// document.getElementById("cameraY").min =-1 * (gridSize/2)
+// document.getElementById("cameraY").max =(gridSize/2)
+// document.getElementById("cameraZ").min = -10
+// document.getElementById("cameraZ").max = gridSize
+
+
+
+  
+        let width = gridSize //3000
+        let height = gridSize
+       
+        let spacings = totalUniqueFlowerChoice.spacings
+        let spacing =  spacings[Math.floor(fxrand()*spacings.length)];      //  70;
+        console.log("SETTINGCHOICE", spacing)
+
+
+     // "compliment", "triad1", "triad2", "quad1", "quad3", "same"
+
+
+     //REAL TODO SCEHEME CHOICE
+  let schemeChoice = [
+  ["veryColorful", "veryColorfulDark", "veryColorfulLight", "veryColorfulOffWhite", "lightCenter", "lightEdge" ],
+  ["veryColorful", "veryColorfulLight", "veryColorfulOffWhite", "lightCenter", "lightEdge" ],
+  ["veryColorful", "veryColorfulLight", "veryColorfulOffWhite", "lightCenter", "lightEdge" ],
+  // ["veryColorful", "veryColorfulDark" ],
+  ["veryColorful", "veryColorfulLight" ],
+   ["veryColorful", "veryColorfulLight", "veryColorfulDark" ],
+  ["veryColorfulOffWhite"],
+  ["veryColorfulDark" ],
+  ["veryColorfulLight"],
+  ["lightCenter", "lightEdge"],
+  ["lightCenter", "lightEdge"],
+  ["lightCenter", "lightEdge"],
+  ["lightEdge"],
+  ["lightCenter"],
+  ["darkCenter", "darkEdge"],
+  // ["darkCenter", "darkEdge"],
+  // ["darkCenter", "darkEdge"],
+  // ["darkEdge"],
+  // ["darkCenter"],
+    ["veryColorful", "veryColorfulDark", "veryColorfulOffWhite", "darkCenter", "darkEdge","lightCenter", "lightEdge" ],
+  ["veryColorful", "veryColorfulOffWhite", "darkCenter", "darkEdge","lightCenter", "lightEdge" ],
+  ["veryColorful", "veryColorfulDark", "veryColorfulOffWhite", "darkCenter", "darkEdge","lightCenter", "lightEdge" ],
+  ["veryColorful"],
+  ["veryColorful", "veryColorfulDark" ],
+  ["veryColorful", "veryColorfulDark", "veryColorfulDark" ],
+
+
+
+
+  ]
+
+  // let schemeChoice = [   ["darkCenter" ]]
+
+
+
+    // let intraFlowerSchemes = ["veryColorful", "veryColorfulDark", "veryColorfulLight", "veryColorfulOffWhite", "lightCenter", "lightEdge" ]
+    
+    let intraFlowerSchemes = schemeChoice[Math.floor(fxrand()*schemeChoice.length)];
+
+    console.log("SETTINGCHOICE", intraFlowerSchemes)
+    // let intraFlowerSchemes = ["veryColorful"]
+
+
+    // let intraFlowerSchemes = ["lightCenter", "lightEdge", "darkCenter", "darkEdge", "veryColorful", "veryColorfulReverse", "normalColor", "normalColorReverse"] //I don't think all of these work yet
+    // let intraFlowerSchemes = ["lightCenter", "lightEdge"]
+    // let intraFlowerSchemes = ["veryColorful"]
+    // let intraFlowerSchemes = ["lightCenter", "lightEdge", "veryColorful", "normalColor", "veryColorfulReverse"]
+    
+    
+    
+    
+    
+    // let flowerForms = [ "1Layer-collection2-scale2",  "1Layer-collection2-scale-Helix", "1Layer", "2Layer", "dahlia", "zinnia", "rose", "camelia", "lotus" ]
+    // let flowerForms = [ "1Layer-collection2-scale2",  "1Layer-collection2-scale-Helix", "1Layer", "2Layer", "dahlia", "zinnia", "rose", "camelia", "lotus" ]
+    // let flowerForms = [ "1Layer", "2Layer" ]
+    // let flowerForms = ["1Layer","2Layer", "1Layer-collection2-scale2"]
+
+let formChoice = [
+["1Layer","2Layer", "1Layer-collection2-scale2"],
+["1Layer","2Layer"],
+["1Layer"],
+["2Layer"],
+["1Layer","2Layer","1Layer","2Layer","1Layer-collection2-scale2", "1Layer-collection2-scale-Helix"],
+["camelia", "lotus", "1Layer","2Layer" , "1Layer","2Layer"],
+["rose", "1Layer","2Layer", "1Layer","2Layer"],
+["dahlia", "zinnia", "1Layer","2Layer" ,"1Layer","2Layer"],
+["dahlia", "1Layer","2Layer", "1Layer","2Layer", "1Layer-collection2-scale-Helix"]
+
+// ["dahlia", "zinnia", "rose", "camelia", "lotus"],
+// ["zinnia"],
+]
+
+//flower type choice
+
+let flowerForms = formChoice[Math.floor(fxrand()*formChoice.length)];
+
+// flowerForms = ["lotus"]
+// totalUniqueFlowers = 5
+
+let smallFlowers = (flowerForms.toString() == "1Layer,2Layer" || flowerForms.toString() == "1Layer" || flowerForms.toString() == "2Layer")
+console.log("smallFlowers", smallFlowers, flowerForms)
+
+// flowerForms = ["zinnia"]
+console.log("INCCHOICE", flowerForms)
+console.log("SETTINGCHOICE", flowerForms)
+
+let multiplier = 0.7
+
+let defaultCameraPos = ((gridSize/2)/2) + 40
+
+
+let realDefaultCameraPos = defaultCameraPos
+
+
+let spire = (flowerForms.includes("1Layer-collection2-scale2") || flowerForms.includes("1Layer-collection2-scale-Helix") )
+
+if(gridSize < 1000 && spire){
+  multiplier = 0.9
+} else if(gridSize < 3001 && spire){
+multiplier = 0.0
+}
+
+
+let colorIncrementOptions = ["compliment", "4", "2", "compliment", "4", "2"]
+let colorIncrementChoice = colorIncrementOptions[Math.floor(fxrand()*colorIncrementOptions.length)];
+let colorIncrement
+
+console.log("INCCHOICE", colorIncrementChoice)
+
+switch (colorIncrementChoice){
+case "compliment":
+colorIncrement = 180
+break;
+case "triadic":
+colorIncrement = 120
+break;
+case "quadratic":
+colorIncrement = 90
+break;
+case "2":
+colorIncrement = 2
+break;
+case "-4":
+colorIncrement = -4
+break;
+case "4":
+colorIncrement = 4
+break;
+case "10":
+colorIncrement = 10
+break;
+case "20":
+colorIncrement = 20
+break;
+
+}
+
+// console.log("BGSCHEME", "COLORINCREMENT", colorIncrement)
+
+
+// let colorIncrement = 4
+
+
+
+
+    //set times the color will increment after each new flower generation, can use this for all color schemes
+    //incrementing values 1—10 will create a nice analogous color scheme, but play around with it, you can even use higher numbers, see what works :)
+    //180 is complementary color scheme
+    //120 is triadic color scheme, for groups of flowers
+    //90  is quadratic color scheme, for groups of flowers
+
+
+
+    document.getElementById("hash").innerText = fxhash
+
+
+
+//TODO REMOVE THIS
+//     totalUniqueFlowerChoice.reducedReduction = 0.9;
+
+
+//   canvasworker1.postMessage({ update: "update", message: "SET RESOLUTION"})
+//       window.highRes = true
+//       if(window.highRes){
+//         reducedReductionCase = true
+//         trueReduction = true;
+//         console.log("0HIGHRES", "SET")
+//   // totalUniqueFlowerChoice.reduction = 0
+  
+// }
+//TODO REMOVE THIS
+
+
+
+
+    </script>
+
+
+
+
+  <script>
+  
+  window.ptReady = false
+  
+  let camera 
+  let textureBg
+  let textureCube
+  let renderer 
+  let ptRenderer
+  let scene
+  let focusPoint
+  let sceneInfo
+  let ptMaterial
+
+    // let ptRenderer
+    let fsQuad
+  
+  </script>
+  
+    
+  
+      <script type="importmap">
+      
+        {
+          "imports": {
+            "three": "./three.js-r148/build/three.module.js",
+            "three-addons/": "./three.js-r137/examples/jsm/",
+            "three/addons/": "./three.js-r148/examples/jsm/",
+            "three/examples/": "./three.js-r148/examples/",
+            "three-gpu-pathtracer": "./three-gpu-pathtracer/build/index.module.js",
+            "three-gpu-pathtracer/src": "./three-gpu-pathtracer/src/",
+            "three-mesh-bvh": "./three-mesh-bvh/build/index.module.js",
+            "three-mesh-bvh/src/workers/GenerateMeshBVHWorker.js": "./three-mesh-bvh/src/workers/GenerateMeshBVHWorker.js",
+            "three/examples/jsm/postprocessing/Pass": "./three.js-r148/examples/jsm/postprocessing/Pass.js",
+            "clipper-lib": "./binPacking/src/clipper.js",
+            "one": "./one.js-r100/build/one.module.js",
+            "one-addons/": "./one.js-r100/examples/jsm/",
+            "one/addons/": "./one.js-r100/examples/jsm/",
+            "one/examples/": "./one.js-r100/examples/"
+          }
+        }
+      
+      </script>
+
+    <script src="./mainscripts/helpers.js"></script>
+    <script src="./convexHull2d.js"></script>
+    <script src="./png.js"></script>
+    <script src="./three.js-r148/build/three.min.js"></script>
+    <script src="./dat.gui.min.js"></script>
+    <script src="./flowerworker-new-almost.js"></script>
+    <script src="./dotworkernew-dots.js" type="module"></script>
+    <script src="./structure/simplex.js"></script>
+    <script src="./structure/one.js"></script>
+    <script src="./structure/two.js"></script>
+    <script src="./structure/vb.js"></script>
+    <script src="./simplify.js"></script>
+    <script src="./one.js-r100/build/one.min.js"></script>
+    <script src="./simplifyMesh.js"></script>
+    <script src="./mainscripts/chooseColors.js"></script>
+    <script src="./mainfunctions.js" type="module"></script>
+  
+    <script src="./packing.js"></script>
+    <script src="./mainscripts/renderHelpers.js"></script>
+    <script>
+
+
+    </script>
+
+    
+    <script src="./mainscripts/flowerClass/flower.js"></script>
+    <script src="./mainscripts/flowerClass/flower-methods.js"></script>
+    <script src="./mainscripts/flowerClass/flower-onworkermessage.js"></script>
+    <script src="./mainscripts/flowerClass/flower-addmaterialnew.js"></script>
+    <script src="./mainscripts/flowerClass/flower-generatecolors.js"></script>
+    <script src="./mainscripts/flowerClass/flower-generatestamen.js"></script>
+    <script src="./mainscripts/flowerClass/flower-generateSpire.js"></script>
+    <script src="./dekapng.js"></script>
+    <script src="./mainscripts/saveBigPng.js"></script>
+    <script src="./mainscripts/cameraControls.js" type="module"></script>
+
+    <canvas width="778" height="950" style="display:none; width: 778px; height: 950px;"></canvas>
+    
+    <link rel="stylesheet" href="./styles.css">
+    
+
+    </body></html>
